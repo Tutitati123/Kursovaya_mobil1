@@ -7,7 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.kur_1.entities.Book
 
-@Database(entities = [Book::class], version = 2, exportSchema = false)
+@Database(entities = [Book::class], version = 3, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun bookDao(): BookDao
 

@@ -37,10 +37,10 @@ class AppendFragment : Fragment() {
             val book = Book(
                 title = binding.etTitle.text.toString(),
                 author = binding.etAuthor.text.toString(),
-                pageCount = binding.etPageCount.text.toString().toIntOrNull() ?: 0,
-                currentPage = binding.etCurrentPage.text.toString().toIntOrNull() ?: 0,
+                totalPages = binding.etPageCount.text.toString().toIntOrNull() ?: 0,
+                pagesRead = binding.etCurrentPage.text.toString().toIntOrNull() ?: 0,
                 genre = binding.etGenre.text.toString(),
-                folder = binding.spinnerFolder.selectedItem?.toString() ?: "Default"
+
             )
 
             viewModel.insertBook(book)

@@ -29,7 +29,9 @@ class BookAdapter(private val onItemClick: (Book) -> Unit) :
         fun bind(book: Book) {
             binding.tvTitle.text = book.title
             binding.tvAuthor.text = book.author
-            binding.root.setOnClickListener { onItemClick(book) }
+            binding.root.setOnClickListener {
+                onItemClick(book)
+            }
         }
     }
 }

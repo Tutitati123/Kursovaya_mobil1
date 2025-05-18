@@ -11,6 +11,7 @@ import com.example.kur_1.data.AppDatabase
 import com.example.kur_1.data.BookRepository
 import com.example.kur_1.databinding.FragmentHomeBinding
 import com.example.kur_1.ui.BookAdapter
+import androidx.navigation.fragment.findNavController
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -49,6 +50,17 @@ class HomeFragment : Fragment() {
         // Подписка на изменения списка книг
         homeViewModel.allBooks.observe(viewLifecycleOwner) { books ->
             adapter.submitList(books)  // Исправленная строка
+        }
+        adapter = BookAdapter { book ->
+            val action = HomeFragmentDirections.actionNavigationHomeToBookDetailFragment(book)
+            findNavController().navigate(action)
+        }
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerView.adapter = adapter
+
+        homeViewModel.allBooks.observe(viewLifecycleOwner) { books ->
+            adapter.submitList(books)
         }
     }
 

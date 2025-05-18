@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     // Добавь KAPT, если используешь Kotlin и аннотации Room
     id("org.jetbrains.kotlin.kapt")
+    id("androidx.navigation.safeargs.kotlin")
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -72,4 +74,10 @@ dependencies {
     // Test helpers
     testImplementation("androidx.room:room-testing:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
+
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.5.3")
 }
