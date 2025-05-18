@@ -15,6 +15,7 @@ data class Book(
     val genre: String,
     val totalPages: Int,
     val pagesRead: Int,
+    val folderId: Int? = null,
     val rating: Float = 0f,
     val review: String = ""
 ): Parcelable

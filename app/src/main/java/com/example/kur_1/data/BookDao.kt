@@ -23,5 +23,6 @@ interface BookDao {
     @Delete
     suspend fun deleteBook(book: Book)
 
-
+    @Query("UPDATE books SET folderId = :folderId WHERE id = :bookId")
+    suspend fun moveToFolder(bookId: Int, folderId: Int?)
 }

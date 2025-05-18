@@ -6,10 +6,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.kur_1.entities.Book
+import com.example.kur_1.entities.Folder
 
-@Database(entities = [Book::class], version = 3, exportSchema = false)
+@Database(entities = [Book::class, Folder::class], version = 5, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun bookDao(): BookDao
+    abstract fun folderDao(): FolderDao
 
     companion object {
         @Volatile
@@ -22,7 +24,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "book_database"
                 )
-                    .fallbackToDestructiveMigration() // Важно для разработки
+                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 instance
